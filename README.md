@@ -1,6 +1,6 @@
 # Google Calculator UI auto tests
 
-### this project test an integrated google calculator.
+### this project test an integrated Google calculator.
 
 ## Used:
 * Selenium Webdriver *(Chrome)*
