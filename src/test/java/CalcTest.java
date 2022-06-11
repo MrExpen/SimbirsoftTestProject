@@ -8,7 +8,7 @@ public class CalcTest {
 
     private static final String CHROME_DRIVER_LOCATION = "chromedriver.exe";
     private static final Duration IMPLICITLY_WAIT_DURATION = Duration.ofSeconds(10);
-    private static final String GOOGLE_URL = "https://google.com";
+    private static final String GOOGLE_URL = "http://google.com";
 
     private static CalcPage calcPage;
 
