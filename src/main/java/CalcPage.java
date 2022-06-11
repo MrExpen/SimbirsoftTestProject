@@ -1,4 +1,3 @@
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,7 +14,7 @@ public class CalcPage {
         this.driver = driver;
     }
 
-    public void setExpression(@NotNull String expression){
+    public void setExpression(String expression){
         driver.findElement(InputElement).sendKeys(expression.replace(" ", ""));
     }
     public void clickButtonCalc(){
