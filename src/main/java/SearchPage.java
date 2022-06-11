@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class SearchPage {
     protected WebDriver driver;
 
-    private By SearchField = By.cssSelector("input[name=\"q\"]");
+    private final By SearchField = By.cssSelector("input[name=\"q\"]");
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
