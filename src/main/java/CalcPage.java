@@ -1,33 +1,49 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CalcPage {
     protected WebDriver driver;
 
-    private final By InputElement = By.cssSelector("div.jlkklc");
-    private final By MemoryLine = By.cssSelector("span.vUGUtc");
-    private final By ResultLine = By.cssSelector("span.qv3Wpe");
-    private final By ButtonCalc = By.cssSelector("div.UUhRt");
-    private final By ButtonSin = By.xpath("//*[@id=\"rso\"]/div[1]/div/div/div[1]/div/div/div[3]/div/table[1]/tbody/tr[2]/td[2]/div/div[1]");
+    @FindBy(css = "div.jlkklc")
+    private WebElement inputElement;
+    @FindBy(css = "span.vUGUtc")
+    private WebElement memoryLine;
+    @FindBy(css = "span#cwos")
+    private WebElement resultLine;
+    @FindBy(css = "div[aria-label=\"равно\"]")
+    private WebElement buttonCalc;
 
     public CalcPage(WebDriver driver) {
         this.driver = driver;
+        init(this.driver);
     }
 
+
     public void setExpression(String expression){
-        driver.findElement(InputElement).sendKeys(expression.replace(" ", ""));
+        inputElement.sendKeys(expression.replace(" ", ""));
     }
+
     public void clickButtonCalc(){
-        driver.findElement(ButtonCalc).click();
+        buttonCalc.click();
     }
-    public void clickButtonSin(){
-        driver.findElement(ButtonSin).click();
+
+    public void addEmptySin(){
+        setExpression("s)");
     }
+
     public String getMemoryValue(){
-        return driver.findElement(MemoryLine).getText();
+        return memoryLine.getText();
     }
+
     public String getResultValue(){
-        return driver.findElement(ResultLine).getText();
+        return resultLine.getText();
+    }
+
+
+    private void init(WebDriver driver) {
+        PageFactory.initElements(driver, this);
     }
 
 }

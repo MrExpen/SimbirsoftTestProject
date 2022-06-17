@@ -11,7 +11,6 @@ public class CalcTest {
     private static final String GOOGLE_URL = "http://google.com";
 
     private static CalcPage calcPage;
-
     public static WebDriver driver;
 
     @BeforeAll
@@ -53,7 +52,7 @@ public class CalcTest {
 
     @Test
     public void testCase3(){
-        calcPage.clickButtonSin();
+        calcPage.addEmptySin();
         calcPage.clickButtonCalc();
         Assertions.assertEquals("sin() =", calcPage.getMemoryValue());
         Assertions.assertEquals("Error", calcPage.getResultValue());
